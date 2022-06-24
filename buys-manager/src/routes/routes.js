@@ -1,5 +1,11 @@
-import dayConceptsRoutes from "./dayConcepts.routes";
+import dayConceptsRoutes from "./day_concepts.routes";
+import platesRoutes from "./plates.routes";
 
-export default {
-    dayConcepts: dayConceptsRoutes
+export {
+    dayConceptsRoutes,
+    platesRoutes
 };
+// export {
+//     dayConcepts: dayConceptsRoutes,
+//     plates: platesRoutes
+// };

@@ -1,4 +1,8 @@
 module.exports = {
+    READED: {
+        TRUE: "Readed successfully",
+        FALSE: "Could not be readed"
+    },
     CREATED: {
         TRUE: "Created successfully",
         FALSE: "Could not be created"

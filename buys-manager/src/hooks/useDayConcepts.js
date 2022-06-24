@@ -1,5 +1,5 @@
 import React from "react";
-import Get from "../services/DayConcepts/Get";
+import Get from "../services/day_concepts/Get";
 
 export default () => {
 

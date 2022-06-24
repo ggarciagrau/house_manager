@@ -1,4 +1,4 @@
-import routes from "../../routes/routes"
+import { platesRoutes } from "../../routes/routes";
 
 export default () => new Promise((resolve, reject) => {
     let headers = new Headers({
@@ -6,13 +6,12 @@ export default () => new Promise((resolve, reject) => {
         'Access-Control-Allow-Origin': '*'
     });
 
-    let request = new Request(routes.dayConcepts.base, {
-        method: "GET",
+    let request = new Request(platesRoutes.base, {
+        method: "POST",
         headers
     });
 
     fetch(request)
-    .then(res => res.json())
-    .then(data => resolve(data))
-    .catch(err => resolve([]));
+        .then(res => res.json())
+        .then(data => resolve(data));
 });
