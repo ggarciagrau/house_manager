@@ -19,4 +19,13 @@ controller.readAll = async (req, res) => {
     }
 }
 
+controller.delete = async (req, res) => {
+    try {
+        if (await dao.delete(req.params.id) == 0) throw new Error();
+        res.sendStatus(204);
+    } catch (ex) {
+        HttpResponse.respond(res, genericResponses.DEELETE_FAILED);
+    }
+}
+
 module.exports = controller;

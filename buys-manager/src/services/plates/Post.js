@@ -1,14 +1,16 @@
 import { platesRoutes } from "../../routes/routes";
 
-export default () => new Promise((resolve, reject) => {
+export default (data) => new Promise((resolve, reject) => {
     let headers = new Headers({
         "Accept": "application/json",
-        'Access-Control-Allow-Origin': '*'
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json"
     });
 
     let request = new Request(platesRoutes.base, {
         method: "POST",
-        headers
+        headers,
+        body: JSON.stringify(data)
     });
 
     fetch(request)

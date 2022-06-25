@@ -5,18 +5,18 @@ export default ({ submitForm, PlateSchema }) => {
 
     return (
         <>
-            <h1>Plate form</h1>
+            <h1>Formulario platos</h1>
             <Formik
-                initialValues={{ name: "" }}
+                initialValues={{ Name: "" }}
                 onSubmit={submitForm}
                 validationSchema={PlateSchema}>
                     {({ errors, touched }) => (
                         <Form>
-                            <div className="form-group">
+                            <div className="form-group mb-1">
                                 <label htmlFor="name">Nombre:</label>
-                                <Field type="text" name="name" id="name" className="form-control" required />
-                                {errors.name && touched.name ? (
-                                <div>{errors.name}</div> 
+                                <Field type="text" name="Name" id="name" className="form-control" required />
+                                {errors.Name && touched.Name ? (
+                                <div>{errors.Name}</div> 
                                 ) : null}
                             </div>
                             <div className="form-group">

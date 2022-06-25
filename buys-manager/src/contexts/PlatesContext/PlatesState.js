@@ -1,19 +1,25 @@
-import React, { useReducer } from "react";
+import React, { useReducer , useEffect} from "react";
 import PlatesContext from "./PlatesContext";
 import PlatesReducer from "./PlatesReducer";
 
 import usePlates from "../../hooks/usePlates";
+import Get from "../../services/plates/Get";
 
 export default (props) => {
     const {
         retrievePlates,
-        createPlate
+        createPlate,
+        removePlate
     } = usePlates();
 
     const initialState = {
-        plates: GetPlates(),
+        plates: [],
         targetEntity: {}
     }
+
+    useEffect(() => {
+        GetPlates();
+    }, []);
 
     const [state, dispatch] = useReducer(PlatesReducer, initialState);
 
@@ -29,11 +35,17 @@ export default (props) => {
         return plates;
     }
 
+    const RemovePlate = async (id) => {
+        return await removePlate(id);
+    }
+
     return (
         <PlatesContext.Provider
             value={{
                 plates: state.plates,
-                CreatePlate
+                GetPlates,
+                CreatePlate,
+                RemovePlate
             }}>
             {props.children}
         </PlatesContext.Provider>

@@ -1,10 +1,12 @@
 const { Router } = require("express");
 const router = Router();
-const platesController = require("./plates.controller");
-const { validateCreate } = require("./plates.validator");
+const controller = require("./plates.controller");
+const { validateCreate, validateDelete } = require("./plates.validator");
 
 router.route("/")
-    .get(platesController.readAll)
-    .post([validateCreate], platesController.create);
+    .get(controller.readAll)
+    .post([validateCreate], controller.create);
+
+router.route("/:id").delete([validateDelete], controller.delete);
 
 module.exports = router;

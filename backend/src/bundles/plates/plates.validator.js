@@ -1,10 +1,18 @@
-const { check } = require("express-validator");
+const { check, param } = require("express-validator");
 const validationHelper = require("../../common/validateHelper");
 
 const validateCreate = [
     check("Name")
         .exists()
         .isLength({ min: 1 }),
+    (req, res, next) => validationHelper(req, res, next)
+];
+
+const validateDelete = [
+    param("id")
+        .exists()
+        .toInt()
+        .isNumeric(),
     (req, res, next) => validationHelper(req, res, next)
 ];
 
@@ -43,5 +51,6 @@ const validateCreate = [
 // ];
 
 module.exports = {
-    validateCreate
+    validateCreate,
+    validateDelete
 }
